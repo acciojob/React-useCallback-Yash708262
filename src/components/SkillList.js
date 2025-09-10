@@ -1,13 +1,12 @@
-
 import React from "react";
 
 const SkillList = React.memo(({ skills, deleteSkill }) => {
   return (
-    <ul>
+    <ul id="skill-list">
       {skills.map((skill, index) => (
         <li
           key={index}
-          id={`skill-${index}`}
+          id={`skill-number-${index}`}
           onClick={() => deleteSkill(index)}
           style={{ cursor: "pointer" }}
         >
@@ -19,3 +18,4 @@ const SkillList = React.memo(({ skills, deleteSkill }) => {
 });
 
 export default SkillList;
+

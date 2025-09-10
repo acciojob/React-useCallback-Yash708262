@@ -1,12 +1,10 @@
-// App.js
 import React, { useState, useCallback } from "react";
-import SkillList from "./SkillList.js";
+import SkillList from "./SkillList";
 
 const UseCallbackComp = () => {
   const [skills, setSkills] = useState(["HTML", "CSS", "JavaScript", "React"]);
   const [inputValue, setInputValue] = useState("");
 
-  // Add skill, avoid duplicates and empty strings
   const addSkill = useCallback(() => {
     const trimmedValue = inputValue.trim();
     if (trimmedValue && !skills.includes(trimmedValue)) {
@@ -15,13 +13,9 @@ const UseCallbackComp = () => {
     }
   }, [inputValue, skills]);
 
-  // Delete skill by index
-  const deleteSkill = useCallback(
-    (index) => {
-      setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
-    },
-    [setSkills]
-  );
+  const deleteSkill = useCallback((index) => {
+    setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
+  }, []);
 
   return (
     <div>
@@ -42,4 +36,3 @@ const UseCallbackComp = () => {
 };
 
 export default UseCallbackComp;
-
